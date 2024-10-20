@@ -34,7 +34,24 @@
     </div>
 
     <script>
+        let elements = [];
+        let grid = document.getElementById("container");
+        // get number of grid rows
+        const gridRowCount = window.getComputedStyle(grid).getPropertyValue("grid-template-rows").split(" ").length;
 
+        // get number of grid columns
+        const gridColumnCount = window.getComputedStyle(grid).getPropertyValue("grid-template-columns").split(" ").length;
+
+        console.log(gridRowCount, gridColumnCount);
+
+        for (let i = 1; i <= gridColumnCount * gridRowCount; i++) 
+        {
+            let el = document.createElement('h3');
+            el.style.textAlign = "center";
+            el.style.alignSelf = "center";
+            el.innerText = i;
+            grid.appendChild(el);
+        }
     </script>
 </body>
 </html>
